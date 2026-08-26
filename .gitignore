@@ -1,0 +1,4 @@
+# macOS
+.DS_Store
+
+# no node_modules / build step — plain static site
