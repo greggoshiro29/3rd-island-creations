@@ -7,7 +7,7 @@
 <meta name="description" content="3rd Island Creations is a creative studio crafting brands, websites, and visual stories that feel like home. Made on the third island." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -19,8 +19,14 @@
   <div class="container nav__inner">
     <a class="nav__brand" href="#top">
       <svg class="nav__mark" viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M20 4 L36 34 H4 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-        <circle cx="20" cy="24" r="4" fill="currentColor"/>
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c5cff"/>
+            <stop offset="1" stop-color="#22d3ee"/>
+          </linearGradient>
+        </defs>
+        <path class="mark-fill" d="M20 4 L36 34 H4 Z"/>
+        <circle cx="20" cy="24" r="4" fill="#0a0a0f"/>
       </svg>
       <span class="nav__word">3rd Island <em>Creations</em></span>
     </a>
