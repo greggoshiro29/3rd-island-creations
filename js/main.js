@@ -75,11 +75,48 @@
         return;
       }
 
-      // Demo handler — replace the fetch target with your form backend.
-      status.textContent = "Thanks, " + name.value.trim() + "! Your inquiry is on its way.";
+      // --------------------------------------------------
+      // Formspree delivery — replace this ID with your form's
+      // short ID (e.g. "mvgoklzx" — the part after /f/<ID>).
+      // Get it at formspree.io after creating a form.
+      const FORMSPREE_ID = "PENDING_FORMSFREE_ID";
+      // --------------------------------------------------
+      if (FORMSPREE_ID === "PENDING_FORMSFREE_ID") {
+        status.textContent =
+          "Form backend not configured yet. (Direct email: greggoshiro@gmail.com)";
+        status.style.color = "var(--coral)";
+        return;
+      }
+
+      const payload = new FormData();
+      payload.append("name", name.value.trim());
+      payload.append("email", email.value.trim());
+      payload.append("message", message.value.trim());
+      payload.append("_replyto", email.value.trim());
+
+      status.textContent = "Sending…";
       status.style.color = "var(--sea)";
-      form.reset();
-      [name, email, message].forEach((el) => el.classList.remove("invalid"));
+
+      fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      })
+        .then((res) => {
+          if (res.ok) {
+            status.textContent =
+              "Thanks, " + name.value.trim() + "! Your inquiry is on its way.";
+            status.style.color = "var(--sea)";
+            form.reset();
+            [name, email, message].forEach((el) => el.classList.remove("invalid"));
+          } else {
+            throw new Error("formspree error " + res.status);
+          }
+        })
+        .catch(() => {
+          status.textContent = "Something went wrong — email us at greggoshiro@gmail.com instead.";
+          status.style.color = "var(--coral)";
+        });
     });
   }
 })();
