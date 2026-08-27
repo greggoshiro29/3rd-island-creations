@@ -76,17 +76,8 @@
       }
 
       // --------------------------------------------------
-      // Formspree delivery — replace this ID with your form's
-      // short ID (e.g. "mvgoklzx" — the part after /f/<ID>).
-      // Get it at formspree.io after creating a form.
-      const FORMSPREE_ID = "PENDING_FORMSFREE_ID";
-      // --------------------------------------------------
-      if (FORMSPREE_ID === "PENDING_FORMSFREE_ID") {
-        status.textContent =
-          "Form backend not configured yet. (Direct email: greggoshiro@gmail.com)";
-        status.style.color = "var(--coral)";
-        return;
-      }
+      // Formspree delivery
+      const FORMSPREE_ID = "mgaewzkl";
 
       const payload = new FormData();
       payload.append("name", name.value.trim());
