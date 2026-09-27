@@ -71,6 +71,8 @@ a{color:inherit;text-decoration:none}
 .nav__links{display:flex;align-items:center;gap:2.1rem;font-size:.95rem;font-weight:500;color:var(--muted)}
 .nav__links a:not(.btn){transition:color .15s}
 .nav__links a:not(.btn):hover{color:var(--text)}
+.nav__links a.is-active{color:var(--text)}
+.nav__links a.is-active::after{content:"";display:block;height:2px;background:var(--grad);border-radius:2px;margin-top:2px}
 .nav__toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.4rem}
 .nav__toggle span{width:24px;height:2px;background:var(--text);transition:.25s;border-radius:2px}
 .mobile-menu{display:none;flex-direction:column;gap:1.1rem;padding:1.2rem 4%;background:rgba(10,10,15,.95);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
@@ -187,6 +189,47 @@ a{color:inherit;text-decoration:none}
 .footer__social a{color:var(--muted);transition:color .15s}
 .footer__social a:hover{color:var(--text)}
 
+/* ---------- Store ---------- */
+.store-hero{padding:6rem 0 4rem}
+.store-hero__inner{max-width:860px}
+.store__head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.store__filters{display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{
+  font-family:inherit;font-size:.9rem;font-weight:600;color:var(--muted);cursor:pointer;
+  padding:.55rem 1.1rem;border-radius:999px;border:1px solid var(--border);background:var(--surface);
+  transition:color .18s,border-color .18s,background .18s;
+}
+.filter-btn:hover{color:var(--text);border-color:var(--border-strong)}
+.filter-btn.is-active{background:var(--grad);border-color:transparent;color:#fff}
+.store__grid{grid-template-columns:repeat(3,1fr)}
+.product{
+  display:flex;flex-direction:column;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.product:hover{transform:translateY(-8px);border-color:var(--border-strong);box-shadow:var(--shadow)}
+.product__media{height:160px;position:relative;overflow:hidden;flex:none}
+.swatch--b{background:linear-gradient(135deg,#0ea5e9,#22d3ee)}
+.swatch--c{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.product__media::before{content:"";position:absolute;top:-40%;right:-30%;width:80%;height:80%;border-radius:50%;background:rgba(255,255,255,.18);filter:blur(30px)}
+.product__body{padding:1.4rem 1.5rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.product__kind{
+  align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .7rem;border-radius:999px;border:1px solid var(--border-strong);
+}
+.product__kind--app{color:#a78bfa;border-color:rgba(167,139,250,.4)}
+.product__kind--pdf{color:#22d3ee;border-color:rgba(34,211,238,.4)}
+.product__kind--ebook{color:#fbbf24;border-color:rgba(251,191,36,.4)}
+.product__body h3{font-size:1.35rem;margin:.8rem 0 .4rem}
+.product__body p{color:var(--muted);font-size:.92rem;flex:1}
+.product__foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.4rem}
+.product__price{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.product.is-hidden{display:none}
+.store__note{margin-top:2.4rem;color:var(--muted);font-size:.92rem;text-align:center}
+.store__note a{color:var(--accent-2);transition:color .15s}
+.store__note a:hover{color:var(--text)}
+
 /* ---------- Reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -199,6 +242,7 @@ a{color:inherit;text-decoration:none}
   .card--feature{grid-column:span 12}
   .services__grid{grid-template-columns:repeat(2,1fr)}
   .about__inner{grid-template-columns:1fr}
+  .store__grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:680px){
   .nav__links{display:none}
@@ -207,6 +251,9 @@ a{color:inherit;text-decoration:none}
   .contact__card{grid-template-columns:1fr;padding:2rem 1.4rem}
   .contact__form{grid-template-columns:1fr}
   .hero{padding:4.5rem 0 3rem}
+  .store__grid{grid-template-columns:1fr}
+  .store__head{flex-direction:column;align-items:flex-start}
+  .store-hero{padding:4rem 0 3rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

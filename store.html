@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Store — 3rd Island Creations</title>
+<meta name="description" content="Shop apps, PDFs, and ebooks from 3rd Island Creations. Instant digital delivery after a secure checkout." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="index.html#top">
+      <svg class="nav__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c5cff"/>
+            <stop offset="1" stop-color="#22d3ee"/>
+          </linearGradient>
+        </defs>
+        <path class="mark-fill" d="M20 4 L36 34 H4 Z"/>
+        <circle cx="20" cy="24" r="4" fill="#0a0a0f"/>
+      </svg>
+      <span class="nav__word">3rd Island <em>Creations</em></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="store.html" class="is-active">Store</a>
+      <a href="index.html#contact" class="btn btn--sm">Start a project</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">About</a>
+    <a href="store.html">Store</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- STORE HERO -->
+  <section class="hero store-hero">
+    <div class="container store-hero__inner">
+      <p class="eyebrow">The Store</p>
+      <h1 class="hero__title">Hand-crafted <span class="accent">downloads</span>, ready when you are.</h1>
+      <p class="hero__lede">Apps, PDFs, and ebooks made by 3rd Island Creations. Secure checkout, instant delivery, and my promise that everything here was worth the wait.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#products">Browse products</a>
+        <a class="btn btn--ghost" href="index.html#contact">Have a question?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section store" id="products">
+    <div class="container">
+      <div class="section__head store__head">
+        <div>
+          <p class="section__kicker">Shop</p>
+          <h2 class="section__title">Products</h2>
+        </div>
+        <div class="store__filters" role="tablist" aria-label="Filter products by type">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="apps" role="tab" aria-selected="false">Apps</button>
+          <button class="filter-btn" data-filter="pdfs" role="tab" aria-selected="false">PDFs</button>
+          <button class="filter-btn" data-filter="ebooks" role="tab" aria-selected="false">Ebooks</button>
+        </div>
+      </div>
+
+      <div class="grid store__grid" id="product-grid">
+
+        <!-- ============================================================
+             PRODUCT TEMPLATE
+             Duplicate a card to add a product. To wire up real payments:
+             1. Create a Payment Link in your Stripe dashboard
+                (dashboard.stripe.com -> Payment Links -> + Create)
+             2. Replace the href below with your Stripe link, e.g.
+                https://buy.stripe.com/your-link-here
+             3. Change the price text and the kind/data-filter badge.
+             ============================================================ -->
+        <article class="product" data-category="apps">
+          <div class="product__media swatch--a"></div>
+          <div class="product__body">
+            <span class="product__kind product__kind--app">App</span>
+            <h3>Alarm Play</h3>
+            <p>A playful, tactile iOS alarm clock (SwiftUI) — clean MVVM, bright and friendly to wake up to.</p>
+            <div class="product__foot">
+              <span class="product__price">$4.99</span>
+              <!-- TEMPLATE: replace href with your Stripe payment link -->
+              <a class="btn btn--primary btn--sm" href="#" rel="nofollow" data-buy>Buy now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-category="pdfs">
+          <div class="product__media swatch--d"></div>
+          <div class="product__body">
+            <span class="product__kind product__kind--pdf">PDF</span>
+            <h3>Branding Toolkit</h3>
+            <p>A practical PDF guide with the checklists and templates I use to build calm, coherent brand systems.</p>
+            <div class="product__foot">
+              <span class="product__price">$12.00</span>
+              <a class="btn btn--primary btn--sm" href="#" rel="nofollow" data-buy>Buy now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-category="ebooks">
+          <div class="product__media swatch--b"></div>
+          <div class="product__body">
+            <span class="product__kind product__kind--ebook">Ebook</span>
+            <h3>Designing on the Third Island</h3>
+            <p>An ebook on slow, careful design — the philosophies, rituals, and process behind hand-made work.</p>
+            <div class="product__foot">
+              <span class="product__price">$9.00</span>
+              <a class="btn btn--primary btn--sm" href="#" rel="nofollow" data-buy>Buy now</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="store__note">Every purchase is delivered instantly by email to <a href="mailto:jng@3rdislandcreations.com">jng@3rdislandcreations.com</a> — well, your email. Questions? <a href="index.html#contact">Get in touch</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year"></span> 3rd Island Creations. Made with care on the third island.</p>
+    <div class="footer__social">
+      <a href="mailto:jng@3rdislandcreations.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

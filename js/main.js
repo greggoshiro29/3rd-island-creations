@@ -49,6 +49,36 @@
     revealEls.forEach((el) => el.classList.add("visible"));
   }
 
+  // Store: filter products by category
+  const grid = document.getElementById("product-grid");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  if (grid && filterBtns.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const filter = btn.getAttribute("data-filter");
+        filterBtns.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle("is-active", active);
+          b.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        grid.querySelectorAll(".product").forEach(function (card) {
+          const cat = card.getAttribute("data-category");
+          const show = filter === "all" || cat === filter;
+          card.classList.toggle("is-hidden", !show);
+        });
+      });
+    });
+    // Store: buy buttons are placeholders until Stripe links are added
+    grid.querySelectorAll("[data-buy]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        if (btn.getAttribute("href") === "#") {
+          e.preventDefault();
+          btn.textContent = "Coming soon";
+        }
+      });
+    });
+  }
+
   // Contact form (client-side validation + demo submission)
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
@@ -105,7 +135,7 @@
           }
         })
         .catch(() => {
-          status.textContent = "Something went wrong — email us at greggoshiro@gmail.com instead.";
+          status.textContent = "Something went wrong — email us at jng@3rdislandcreations.com instead.";
           status.style.color = "var(--coral)";
         });
     });
