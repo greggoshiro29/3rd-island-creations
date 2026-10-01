@@ -94,12 +94,15 @@
              ============================================================ -->
         <!-- ============================================================
              LOVE ME AS I AM — printable workbook
-             TO GO LIVE: create a Stripe Payment Link for $12, then paste
-             its URL into the href below.
-             In Stripe, set "After payment" -> "Redirect to a URL" to:
-               https://3rdislandcreations.com/thanks.html
-             so buyers land on the download page. Delivery then happens
-             on thanks.html (the zip is unlisted, not indexed).
+             LIVE: Stripe Payment Link $9.99 (wired below, data-buy).
+             In Stripe, "After payment" -> "Redirect to a URL" must point at
+               http://3rdislandcreations.com/thanks.html
+             NOTE THE PROTOCOL: use http://, not https://. The custom domain's
+             TLS certificate has never been provisioned, so an https:// redirect
+             lands buyers on a NET::ERR_CERT_COMMON_NAME_INVALID error page and
+             they never reach their download. Once Settings -> Pages has issued
+             the cert, switch this to https://.
+             Delivery happens on thanks.html (the zip is unlisted, not indexed).
              ============================================================ -->
         <article class="product" data-category="pdfs">
           <div class="product__media product__media--photo"></div>
