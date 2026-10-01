@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Keep the unlisted download folder out of search engines.
+Disallow: /dl/
+Disallow: /thanks.html
